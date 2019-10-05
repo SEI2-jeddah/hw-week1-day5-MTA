@@ -58,8 +58,8 @@ var subwayLines = {
           }
 
         }
-        tripcomp[0]= firstTrip
-        tripcomp[1]= secondTrip
+        tripcomp.push= firstTrip
+        tripcomp.push= secondTrip
 
         return tripcomp
     }
