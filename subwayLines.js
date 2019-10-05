@@ -12,18 +12,60 @@ var subwayLines = {
   
       if(startLineIndex === endLineIndex)
       {
-          if(endStationIndex > startStationIndex) 
+        if(endStationIndex > startStationIndex) 
           {
           return startLineIndex.slice(startStationIndex, endStationIndex + 1);
           } 
-          else if (endStationIndex < startStationIndex)
+        else if (endStationIndex < startStationIndex)
           {
-                return endLineIndex.slice(endStationIndex, startStationIndex + 1).reverse();
+          return endLineIndex.slice(endStationIndex, startStationIndex + 1).reverse();
           }
       }
-      if(startLineIndex != endLineIndex)
+
+    
+      
+      else if(startLineIndex != endLineIndex)
       {
-       return "sorry, need to change Subway line in Union Square"
-      }
+        let tripcomp = []
+  
+        function firstTrip(startLine,startStation)
+        {
+          var startLineIndex = subwayLines[startLine];
+          var startStationIndex = subwayLines[startLine].indexOf(startStation);
+          var unionSquareStation = subwayLines[startLine].indexOf("US");
+          if( startStationIndex < unionSquareStation) 
+              {
+             return startLineIndex.slice(startStationIndex, unionSquareStation + 1);
+             } 
+          else if (startStationIndex > unionSquareStation)
+             {
+              return startLineIndex.slice(startStationIndex, unionSquareStation + 1).reverse();
+             }
+
+        }
+        function secondTrip(endLine,endStation)
+        {
+          var endLineIndex = subwayLines[endLine];
+          var endStationIndex = subwayLines[startLine].indexOf(endStation);
+          var unionSquareStation = subwayLines[endLine].indexOf("US");
+          if( endStationIndex < unionSquareStation) 
+          {
+             return endLineIndex.slice(endStationIndex, unionSquareStation + 1);
+          } 
+          else if (endStationIndex > unionSquareStation)
+          {
+              return endLineIndex.slice(endStationIndex, unionSquareStation + 1).reverse();
+          }
+
+        }
+        tripcomp[0]= firstTrip
+        tripcomp[1]= secondTrip
+
+        return tripcomp
     }
-  planTrip("l","8th", "n", "3rd");
+  }
+    planTrip ("o", "33rd", "o", "AP"); 
+    planTrip ("n", "US", "o", "33rd"); 
+
+    
+ 
