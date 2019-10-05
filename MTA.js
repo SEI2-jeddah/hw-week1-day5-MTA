@@ -1,13 +1,6 @@
-// # MTA Lab
+// MTA LAB Homework 
 
-// ## Objectives:
-
-// - Apply your knowledge of JavaScript to solve a real world problem.
-// - Get really good at array manipulation.
-
-// ### Activity
-
-// - Create a program that models a simple subway system.
+// Create a program that models a simple subway system.
 
 
 
@@ -33,13 +26,12 @@ function planTrip(startinLine, start, distnationLine, distnation){
        retry = lineNum(location, route, startinLine)
        path += retry[0]
 
-       path = path.substr(0, path.length-1);
-       path = path.substr(0, path.length-1);
+       path = path.slice(0, path.length-1);
+       path = path.slice(0, path.length-1);
        path += '.'
        console.log(path)
        way += retry[1]
        console.log(way + ' stops in total.')
-
 
    }else{
 
@@ -49,8 +41,8 @@ function planTrip(startinLine, start, distnationLine, distnation){
 
        path += retry[0]
        way += retry[1]
-       path = path.substr(0, path.length-1);
-       path = path.substr(0, path.length-1);
+       path = path.slice(0, path.length-1);
+       path = path.slice(0, path.length-1);
        path += '.'
        console.log(path)
        console.log("Change at Union Square.")
@@ -58,8 +50,8 @@ function planTrip(startinLine, start, distnationLine, distnation){
        retry = lineNum(allLines[distnationLine].indexOf('Union Square'),route , distnationLine)
        path += retry[0]
        way += retry[1]
-       path = path.substr(0, path.length-1);
-       path = path.substr(0, path.length-1);
+       path = path.slice(0, path.length-1);
+       path = path.slice(0, path.length-1);
        path += '.'
        console.log(path)
        console.log(way + ' stops in total.')
@@ -67,24 +59,24 @@ function planTrip(startinLine, start, distnationLine, distnation){
    }
 
  function lineNum(start, distnation, path){
-       let ans = ''
-         let count = 0   
+       let str = ''
+         let numb = 0   
        
   if (distnation > start){
               
   for(var i = start +1; i<= distnation; i++){
-    ans += allLines[path][i] + ', '
-        count += 1
+    str += allLines[path][i] + ', '
+        numb += 1
 
                }
   }else if (distnation < start){
 
    for(var i = start-1; i >= distnation; i--){
-        ans += allLines[path][i] + ', '
-          count += 1
+        str += allLines[path][i] + ', '
+          numb += 1
                }
    }
- return [ans, count]
+ return [str, numb]
    }
 }
 planTrip("N", "Times Square", "6", "33rd");
