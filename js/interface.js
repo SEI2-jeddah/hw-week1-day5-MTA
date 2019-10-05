@@ -22,7 +22,6 @@ show.addEventListener('click',submit);
  function dropdown1(){
     departureLine=this.value;
 
-    document.getElementById('instructions').textContent=departureLine;
     deleteChild("dropdown1");
 
     for(let i=0;i<map[departureLine].length;i++){
@@ -40,13 +39,12 @@ show.addEventListener('click',submit);
 function dropdown2(){
     arrivalLine=this.value;
 
-    document.getElementById('instructions').textContent=arrivalLine;
     deleteChild("dropdown2");
 
     for(let i=0;i<map[arrivalLine].length;i++){
         var cardElement=document.createElement('button');
         cardElement.setAttribute('id',map[arrivalLine][i]+"2");
-        cardElement.setAttribute('value',map[departureLine][i]);
+        cardElement.setAttribute('value',map[arrivalLine][i]);
         cardElement.setAttribute('class',"dropdown-item");
         cardElement.addEventListener('click',setArrival);
         document.getElementById('dropdown2').appendChild(cardElement);
