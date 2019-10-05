@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Subway Guide</title>
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Raleway:400,500,600,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+        <link href="main.css" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-light">
+            <a class="navbar-brand" href="#">
+                <img src="https://i.ytimg.com/vi/CcoZQiVFp0Q/maxresdefault.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                Subway Guide
+            </a>
+        </nav>
+        <main class="container text-center">
+<div class="station card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">Departure Station</div>
+            <div class="card-body">
+                <h5 class="card-title">Line</h5>
+           
+                <div>
+                <input type="radio" name="line-departure" value="N" id="departure-N"> N<br>
+                <input type="radio" name="line-departure" value="L" id="departure-L" > L<br>
+                <input type="radio" name="line-departure" value="S" id="departure-6"> 6<br> 
+                </div>
+                <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Stops
+                </button>
+                <div class="dropdown-menu" id="dropdown1" aria-labelledby="dropdownMenuButton">
+                </div>
+                </div>
+            </div>
+            </div>
+
+           
+           
+            <div class="station card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">Arrival Station</div>
+            <div class="card-body">
+                <h5 class="card-title">Line</h5>
+           
+                <div>
+                <input type="radio" name="line-arrival" value="N" id="arrival-N"> N<br>
+                <input type="radio" name="line-arrival" value="L" id="arrival-L" > L<br>
+                <input type="radio" name="line-arrival" value="S" id="arrival-6"> 6<br> 
+                </div>
+                <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Stops
+                </button>
+                <div class="dropdown-menu" id="dropdown2" aria-labelledby="dropdownMenuButton">
+                </div>
+                </div>
+            </div>
+            </div>
+
+
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">Instructions</div>
+            <div class="card-body">
+                <button class="btn" id="Submit">Show Instructions</button>
+                <p class="card-text" id="instructions">Choose a starting point for your trip and a destination to see the instructions</p>
+            </div>
+            </div>
+
+
+      
+
+        </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/interface.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+    
+    </body>
+</html>
+

@@ -1,0 +1,25 @@
+.station{
+    display: inline-block;
+}
+
+nav{
+    background-color: white;
+    font-size: 24px;
+}
+.card{
+    margin: auto;
+}
+
+.custom-control{
+    display: inline-block;
+}
+
+.btn:hover{
+    background-color: white;
+    color:black;
+}
+
+input{
+    display: inline;
+}
+
