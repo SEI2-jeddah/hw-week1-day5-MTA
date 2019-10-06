@@ -105,5 +105,7 @@ function findPath(dest_index, stop_index, line, msg) {
     }
 }
 
-planTrip("L", "8th", "L", "1st");
-planTrip("N", "TimesSquare","SIXTH", "33rd");
+// planTrip("L", "8th", "L", "1st");
+// planTrip("N", "TimesSquare","SIXTH", "33rd");
+planTrip("L", "8th","SIXTH", "33rd");
+
