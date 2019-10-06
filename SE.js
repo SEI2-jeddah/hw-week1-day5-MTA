@@ -29,8 +29,7 @@ if(StartLine!=EndLine){
         console.log(way.join(', ')+ ".");
         console.log("Change at Union Square.");
 }
-   else
-   {
+   
         while(i!=E){
 
            if(E>i){
@@ -42,7 +41,7 @@ if(StartLine!=EndLine){
        way1.push(Lines[EndLine][i]);
 
         }
-    }
+    
 	
     console.log("\n Your trip will include the following stops on the " +EndLine +" line: " + way1.join(', ')+ ".");
     console.log(way.length+way1.length+" stops in total.");
