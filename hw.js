@@ -17,13 +17,14 @@ function planTrip(startPosion, startStaion, endPosion, endStaion) {
     }
     if (startPosion == endPosion) {
         {
+            
             let nextPoint = startPosion.indexOf(startStaion)
             let newpoint = startPosion.indexOf(endStaion)
-            sameline(nextPoint, newpoint)
+            sameline(nextPoint, newpoint,startPosion)
         }
     }
     function sameline(nextPoint, newpoint,line) {
-        for (i = 0; i <= line.indexOf('Union Square'); i++) {
+        for (i = 1; i <= line.indexOf('Union Square'); i++) {
             if (nextPoint > newpoint) {
                 console.log("You should move to " + line[nextPoint--])
                 nextPoint = line.indexOf(line[nextPoint--])
@@ -42,5 +43,4 @@ function planTrip(startPosion, startStaion, endPosion, endStaion) {
     }
     console.log("total steps is " + steps)
 }
-planTrip(six, "Astor Place", n, "34th") 
-
+planTrip(n, "Times Square", n, "34th") 
