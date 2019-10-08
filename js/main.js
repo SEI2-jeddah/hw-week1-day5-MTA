@@ -36,7 +36,7 @@ function planTrip(departureLine,departureStop,arrivalLine,arrivalStop){
         }
         path2.push(map[arrivalLine][i]);
     }
-    if(path2.length>1){
+    if(path2.length>=1){
     console.log(text+="Your trip will include the following stops on the " +arrivalLine +" line: " + path2.join(', ')+ ".");
 
         }   
