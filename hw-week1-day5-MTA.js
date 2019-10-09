@@ -43,10 +43,11 @@ function planTrip(stop1, Line1, stop2, Line2){
   
   if(line1 == line2){
       trip1 = oneLine(stop1, stop2, line2)
-      console.log(trip1)
-      console.log('trip')
+      console.log("You must travel through the following stops on the " +Line1+ " line: "+ trip1)
+      console.log(stops+ " stops in total.")
 
-  }else if(line1 != line2){
+  }
+  else if(line1 != line2){
       trip1 = oneLine(stop1, 'Union Square', line1)
 
       trip2 = oneLine('Union Square', stop2, line2)
@@ -55,9 +56,8 @@ function planTrip(stop1, Line1, stop2, Line2){
       console.log('Change at Union Square.')
       console.log('Your journey continues through the following stops:' + trip2)
       console.log(stops + " stops in total.");
-
-  }else{
-      console.log('you are there :P ')
   }
 }
-planTrip("6th"  ,'L', '33rd', '6')
+console.log(planTrip("6th"  ,'L', '3rd', 'L'));
+console.log("---------------------------------")
+console.log(planTrip( "Times Square",'N',"33rd", '6'))
