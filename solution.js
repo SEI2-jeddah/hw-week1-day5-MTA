@@ -3,72 +3,56 @@ let Mta = {
     L: ["8th", "6th", "Union Square", "3rd", "1st"],
     "6": ["Grand Central", "33rd", " 28th", "23rd", "Union Square", "Astor Place"]
 }
-
-function planTrip(stop1, Line1, stop2, Line2){
-
-    let line1 = Mta[Line1]
-    let line2 = Mta[Line2]
-    let trip1, trip2 = ""
+function planride(firstStop, firstLine, scndStop, scndLine){
+    let firstLine = Mta[firstLine]
+    let scndLine = Mta[scndLine]
+    let firstRide, ride2 = ""
     let stops = 0
-
-    function oneLine(starting, end, line){
-        let trip= ''
-        let pos = line.indexOf(starting)
-
-    if(line.indexOf(starting) < line.indexOf(end)){
-
-        stops +=  line.indexOf(end) - line.indexOf(starting)
+    function oneLine(start, end, line){
+        let ride= ''
+        let pos = line.indexOf(start)
+    if (line.indexOf(start) < line.indexOf(end)){
+        stops +=  line.indexOf(end) - line.indexOf(start)
         for(var i = pos+1; i <=line.indexOf(end); i++ ){
             if(i == line.indexOf(end)){
-                trip += line[i] + '.'
+                ride += line[i] + '.'
             }else{
 
-            trip += line[i] + ', '
+            ride += line[i] + ', '
             }
         }
     }
-
-    else if(line.indexOf(starting) >line.indexOf(end)){
-        stops += line.indexOf(starting) - line.indexOf(end)
+    else if(line.indexOf(start) >line.indexOf(end)){
+        stops += line.indexOf(start) - line.indexOf(end)
         for(var i = pos-1; i > line.indexOf(end); i-- ){
             if(i == line.indexOf(end)+1){
-                trip += line[i] + '.'
+                ride += line[i] + '.'
             }else{
 
-            trip += line[i] + ', '
+            ride += line[i] + ', '
 
             }
         }
 
     }
-    return trip
-
-
+    return ride
     }
+    if(firstLine == scndLine){
+        firstRide = oneLine(firstStop, scndStop, scndLine)
+        console.log(firstRide)
+        console.log('ride')
 
-    if(line1 == line2){
-        trip1 = oneLine(stop1, stop2, line2)
-        console.log(trip1)
-        console.log('trip')
+    }else if(firstLine != scndLine){
+        firstRide = oneLine(firstStop, 'Union Square', firstLine)
 
-    }else if(line1 != line2){
-        trip1 = oneLine(stop1, 'Union Square', line1)
+        ride2 = oneLine('Union Square', scndStop, scndLine)
 
-        trip2 = oneLine('Union Square', stop2, line2)
-
-        console.log("You must travel through the following stops on the " + Line1 + " line: " + trip1)
+        console.log("You must travel through the following stops on the " + firstLine + " line: " + firstRide)
         console.log('Change at Union Square.')
-        console.log('Your journey continues through the following stops:' + trip2)
+        console.log('Your journey continues through the following stops:' + ride2)
         console.log(stops + " stops in total.");
-
-    }else{
+    } else{
         console.log('you are there :P ')
     }
-
-
-
-
 }
-
-
-planTrip("Times Square"  ,'N', '33rd', '6')
+planride("Times Square"  ,'N', '33rd', '6')
