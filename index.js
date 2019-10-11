@@ -1,75 +1,60 @@
-let n = [ "Times-Square", "34th", "28th", "23rd", "Union Square", "8th"]
-let l = [ "Grand-Central", "33rd", "28th", "23rd", "Union Square","Astor-Place"]
-let six = [ "8th", "6th", "Union Square", "3rd", "1st"]
- function stops(line, position, next_line,  destination ){
-let ans = ''
-   if (line == "n"){
-     for (let i = 0; i < n.length; i++){
-        if ( n.indexOf(position) !== -1){
-          if ( n.indexOf(position) < n.indexOf(destination)){
-            for (let i =n.indexOf(position) ; i <= n.indexOf(destination) ; i++){
-              ans += n[i]
-            
-            }
-            
+let Mta = {
+  N: ["Times Square", "34th", "28th", "23rd", "Union Square", "8th"],
+  L: ["8th", "6th", "Union Square", "3rd", "1st"],
+  "6": ["Grand Central", "33rd", " 28th", "23rd", "Union Square", "Astor Place"]
+
+
+}
+
+function Plantrip(Line1, Stop1, Line2, Stop2) {
+
+  let stops = 0;
+  let journy1, journy2 = "";
+  let line = Mta[Line1]
+  let line2 = Mta[Line2]
+
+
+  function oneLine(start, end, Line) {
+
+      var trip = ""
+      if (Line.indexOf(start) < Line.indexOf(end)) {
+
+          stops += Line.indexOf(end) - Line.indexOf(start)
+          for (let index = Line.indexOf(start); index <= Line.indexOf(end); index++) {
+              trip += Line[index] + " , "
+
+
+
+          }
+      }
+      else{
+          stops += Line.indexOf(start) - Line.indexOf(end)
+          for (let index = Line.indexOf(start); index >= Line.indexOf(end); index--) {
+
+              trip += Line[index] + " , "
+
+
+
           }
 
-            else if(n.indexOf(position) > n.indexOf(destination)){
-               for (let i = n.indexOf(position) - 1 - 1; i > 0; i--){
+      }
 
-                 ans += '' + n[i]
-               }
-            }
-         console.log(ans)
-
-
-        }
-     }
-   }
-   else if ( line == "l"){
-     for (let i = 0; i < l.length; i++){
-        if ( l.indexOf(position) !== -1){
-          if ( l.indexOf(position) < l.indexOf(destination)){
-            for (let i =l.indexOf(position) ; i <= l.indexOf(destination) ; i++){
-              ans += l[i]
-            
-            }
-            
-          }
-
-            else if(l.indexOf(position) > l.indexOf(destination)){
-               for (let i = l.indexOf(position) - 1; i > 0; i--){
-
-                 ans += '' + l[i]
-               }
-            }
-   }
- 
- }
-   }
-
-  else if ( line == "6"){
-     for (let i = 0; i < six.length; i++){
-        if ( six.indexOf(position) !== -1){
-          if ( six.indexOf(position) < six.indexOf(destination)){
-            for (let i =six.indexOf(position) ; i <= six.indexOf(destination) ; i++){
-              ans += six[i]
-            
-            }
-            
-          }
-
-            else if(six.indexOf(position) > six.indexOf(destination)){
-               for (let i = six.indexOf(position) - 1; i > 0; i--){
-
-                 ans += '' + six[i]
-               }
-            }
-        }
-     }
+return trip
   }
- }
-      
-       
 
-stops("n", "Times Square", "n", "8th");
+  if( Line1 == Line2){
+
+      journy1 = oneLine( Stop1, Stop2, line)
+      console.log(journy1)
+  }
+  else {
+      journy1 = oneLine (Stop1, "Union Square", line)
+      journy2 = oneLine ("Union Square", Stop2, line2)
+      console.log("You must travel through the following stops on the " + Line1 + " line: " + journy1)
+      console.log('Change at Union Square.')
+      console.log('Your journey continues through the following stops:' + journy2)
+      console.log(stops + " stops in total.");
+
+  }
+}
+Plantrip("N", "Times Square", '6', '33rd')
